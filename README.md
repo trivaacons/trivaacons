@@ -1,1 +1,3 @@
-# trivaacons
+# TrivaaCons Építőipari Kft.
+
+Céges weboldal.
