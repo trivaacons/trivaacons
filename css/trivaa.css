@@ -1,0 +1,52 @@
+/**
+ * Site-specific styles.
+ */
+
+/* Font settings */
+body {
+	font-family: "Questrial","Lucida Grande","Lucida Sans",Roboto,Arial,sans-serif !important;
+}
+
+/* Branding */
+.trivaa-company-logo-small {
+    float: left;
+    height: 2.5rem;
+}
+
+.trivaa-company-logo {
+    display: block;
+    margin: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    opacity: 0.75;
+}
+
+.jumbotron {
+    background-image: url(../img/jumbotron-bg.jpg);
+    background-position: center;
+	background-size: cover;
+	color: white;
+}
+
+/* Activities */
+.trivaa-activities {
+	padding-top: 2rem;
+	background-color: #e9ecef;
+}
+
+/**
+ * Bootstrap overrides.
+ */
+.navbar {
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+}
+
+.navbar-brand {
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+}
+
+.navbar-toggler {
+	border: 0px;
+}
