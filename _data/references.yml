@@ -1,5 +1,13 @@
-# Munka: Kolozsy-tér
-- location: Budapest, III. ker
-  year: 2016
-  kind: Lakásfelújítás
-  img_prefix: klzs-bud3
+# Dimensions
+kinds:
+  renovation:
+    hu: Lakásfelújítás
+    en: Renovation
+
+# Kolozsy-tér
+list:
+  - city: Budapest
+    district: III.
+    year: 2016
+    kind: renovation
+    images:
