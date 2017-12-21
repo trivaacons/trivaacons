@@ -50,43 +50,53 @@ button:focus {
 	height: 100%;
 	animation-name: fade;
 	animation-iteration-count: infinite;
-	animation-duration: 16s;
+	animation-duration: 32s;
 }
 
 /*
  Parameters:
-	num - # of images [2]
+	num - # of images [4]
 	imageVisibleTime = time the image is fully visible (sec) [6]
 	fadeTime - image fade in/out transition time (sec) [2]
 
  Derived vars:
 	imageForegroundTime (i.e. time image is shown + when it fades out) = imageVisibleTime + fadeTime [8]
-	totalAnimationDuration = imageForegroundTime * num [16]
+	totalAnimationDuration = imageForegroundTime * num [32]
 	imageDelay(i) = -1 * (i - 1) * imageForegroundTime
 
  Breakpoints (=percentage calculation):
 	bpFullyVisibleStart = 0%
-	bpFullyVisibleEnd = (imageVisibleTime / totalAnimationDuration) * 100% [37.5%]
-	bpFadeOutComplete = bpFullyVisibleEnd + (fadeTime / totalAnimationDuration) * 100% [50%]
-	bpFadeInBegin = 100% - (fadeTime / totalAnimationDuration) * 100% [87.5%]
+	bpFullyVisibleEnd = (imageVisibleTime / totalAnimationDuration) * 100% [18.75%]
+	bpFadeOutComplete = bpFullyVisibleEnd + (fadeTime / totalAnimationDuration) * 100% [25%]
+	bpFadeInBegin = 100% - (fadeTime / totalAnimationDuration) * 100% [93.75%]
 	bpFadeInComplete = 100%
 */
 @keyframes fade {
 	/* bpFullyVisibleStart */ 0% { opacity: 1; }
-	/* bpFullyVisibleEnd */ 37.5% { opacity: 1; }
-	/* bpFadeOutComplete */ 50% { opacity: 0; }
-	/* bpFadeInBegin */ 87.5% { opacity: 0; }
+	/* bpFullyVisibleEnd */ 18.75% { opacity: 1; }
+	/* bpFadeOutComplete */ 25% { opacity: 0; }
+	/* bpFadeInBegin */ 93.75% { opacity: 0; }
     /* bpFadeInComplete */ 100% { opacity: 1; }
 }
 
 .trivaa-bgimage1 {
 	animation-delay: 0s;
-	background-image: url(../img/jumbotron-bg.jpg);
+	background-image: url(../img/jumbotron-bg1.jpg);
 }
 
 .trivaa-bgimage2 {
 	animation-delay: -8s;
 	background-image: url(../img/jumbotron-bg2.jpg);
+}
+
+.trivaa-bgimage3 {
+	animation-delay: -16s;
+	background-image: url(../img/jumbotron-bg3.jpg);
+}
+
+.trivaa-bgimage4 {
+	animation-delay: -24s;
+	background-image: url(../img/jumbotron-bg4.jpg);
 }
 
 /* General content section */
@@ -102,6 +112,10 @@ button:focus {
 
 .trivaa-foreground-content2 {
 	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.trivaa-activity-icon {
+	background-color: #b33f21;
 }
 
 /**
@@ -121,4 +135,9 @@ button:focus {
 
 .navbar-toggler {
 	border: 0px;
+}
+
+.btn-primary {
+	background-color: #b33f21 !important;
+	border-color: #b33f21 !important;
 }
