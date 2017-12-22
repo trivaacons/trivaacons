@@ -7,9 +7,20 @@ title: TrivaaCons Építőipari Kft.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Prevent FOUC (flash of unstyled content) -->
+  <style type="text/css">
+    .no-fouc {
+      visibility: hidden;
+    }
+  </style>
+
+  <script type="text/javascript">
+    document.documentElement.className = 'no-fouc';
+  </script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ page.permalink }}css/trivaa.css">
-  <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">  
 
   <title>{{ page.title }}</title>
   {% include favicon.html %}

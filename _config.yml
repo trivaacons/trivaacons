@@ -1,5 +1,7 @@
 # Site settings
 title: TrivaaCons Építőipari Kft.
+url: trivaacons.hu
+baseurl: /
 
 # Build settings
 host: 0.0.0.0

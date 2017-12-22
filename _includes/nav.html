@@ -25,6 +25,15 @@
       <li class="nav-item">
         <a class="nav-link" href="#contact-us">{{ site.data.texts.item_contact_us }}</a>
       </li>
+      {% for lang in site.languages %}
+        {% assign page_path = lang %}
+        {% if lang == 'hu' %}
+          {% assign page_path = "" %}
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ page_path | absolute_url }}"><img class="trivaa-flag align-middle" src="{{ page.permalink }}img/flag-{{ lang }}.png"></a>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </nav>

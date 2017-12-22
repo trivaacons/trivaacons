@@ -27,6 +27,11 @@ body {
     opacity: 0.8;
 }
 
+.trivaa-flag {
+	width: 24px;
+	height: 24px;
+}
+
 .jumbotron {
 	background-color: rgba(255, 255, 255, 0);
 }
