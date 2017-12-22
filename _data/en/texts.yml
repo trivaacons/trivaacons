@@ -10,9 +10,9 @@ check_out: Check out our references
 
 # Activities
 contact: Ask for an offer
-renovation: Renovation
-house_building: House construction
-proj_mgmt: Project management
+activity1: Renovation
+activity2: House construction
+activity3: Consulting
 
 # References
 district: distr.

@@ -9,8 +9,9 @@ body {
 }
 
 /* Button styles */
-button:focus {
+.btn:focus, .btn:active {
 	outline: none !important;
+	box-shadow: none !important;
 }
 
 /* Branding */
@@ -114,8 +115,27 @@ button:focus {
 	background-color: rgba(255, 255, 255, 0.6);
 }
 
+/* Activity icons */
 .trivaa-activity-icon {
+	display: inline-block;
 	background-color: #b33f21;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 96px;
+	width: 140px;
+	height: 140px;
+}
+
+.trivaa-activity1 {
+	background-image: url(../img/activity1.png);
+}
+
+.trivaa-activity2 {
+	background-image: url(../img/activity2.png);
+}
+
+.trivaa-activity3 {
+	background-image: url(../img/activity3.png);
 }
 
 /**
