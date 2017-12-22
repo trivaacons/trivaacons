@@ -4,8 +4,7 @@
 
 /* Font settings */
 body {
-	font-family: Roboto,"Questrial","Lucida Grande","Lucida Sans",Arial,sans-serif !important;
-	z-index: 1000;
+	font-family: 'Oxygen', sans-serif;
 }
 
 /* Button styles */
@@ -109,6 +108,8 @@ body {
 /* Foreground contents (above fixed background image) */
 .trivaa-foreground-content1 {
 	background-color: white;
+	/*color: rgb(136, 65, 65);*/
+	color: rgb(131, 131, 131);
 }
 
 .trivaa-foreground-content2 {
