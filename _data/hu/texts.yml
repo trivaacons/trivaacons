@@ -22,7 +22,7 @@ about_us1: >
   helyzetbe kerülhetnek. Ki ne hallott volna időben és pénzben elúszott nem megfelelő minőségű munkákról, elégtelen műszaki teljesítésről...
 about_us2: >
   Célunk, hogy képességeink és tapasztalataink birtokában megvalósítsuk Ügyfeleink építési céljait a jelenlegi piaci körülményeket mindig figyelembe véve,
-  a költség- és időkeretet kontroll alatt tartva. Az Ügyfeleinknek nyújtott szolgáltatás részeként rendelkezésre
+  a költség- és időkeretet kontroll alatt tartva, megcélozva a kíváló minőséget. Az Ügyfeleinknek nyújtott szolgáltatás részeként rendelkezésre
   állunk a tervek megszületésétől kezdve az építmény elkészültéig és használatba vételéig, ezzel átsegítve Önt az építőipar sokszor rögös útvesztőin.
 about_us3: >
   Tekintse meg referenciáinkat és lépjen kapcsolatba velünk, amennyiben cégünk tevékenysége segítségére lehet! Ügyfelünkként mindent megteszünk
@@ -30,11 +30,34 @@ about_us3: >
   legnagyobb megelégedésére szolgáljon!
 
 # Activities
-contact: Kérje ajánlatunkat
-contact_subject: Ajánlatkérés
+contact1: Kérje ajánlatunkat
+contact1_subject: Ajánlatkérés
 activity1: Lakásfelújítás
+activity1_desc1: >
+  Lakásának részleges vagy teljes felújítását vállaljuk az Ön elképzelései vagy, amennyiben rendelkezésére áll, meglévő tervek alapján. Ha szükséges, az építési
+  tervek elkészítését is elvégezzük.
+activity1_desc2: >
+  Az alábbi gomb segítségével felveheti velünk a kapcsolatot! Az ajánlat pontos elkészítéséhez helyszíni felméréseket végzünk az Önnel egyeztetett
+  időpontokban. Az építési munkálatok alatt folyamatosan egyeztetünk Önnel hogy Ön mindig pontos képet kapjon a munka előrehaladtáról.
+
+contact2: Kérje ajánlatunkat
+contact2_subject: Ajánlatkérés
 activity2: Házépítés
-activity3: Tanácsadás
+activity2_desc1: >
+  Megálmodott házának felépítését vállaljuk a kivitelezés elejétől kezdve a kulcsrakész átadásig. Az építkezés alatt folyamatosan egyeztetünk Önnel a
+  felmerülő kérdésekről, s a munka előrehaladásáról.
+activity2_desc2: >
+  Kattintson a lenti gombra, hogy felvegye velünk a kapcsolatot! Első lépésként időpontot egyeztetünk Önnel egy találkozóra, melyen áttekintjük elképzeléseit,
+  s nekikezdünk az építkezés megszervezésének.
+
+contact3: Vegye fel velünk a kapcsolatot
+contact3_subject: Megkeresés
+activity3: Projektvezetés
+activity3_desc1: >
+  Lebonyolító cégként vállaljuk akár nagyobb építési projektek teljes organizációját és szervezését, a Megrendelőkkel és az Alvállalkozókkal való folyamatos egyeztetést
+  ill. kapcsolattartást. Összehangoljuk a sokszor széttartó szempontokat és elképzeléseket, ügyelve a határidőkre és a költségekre.
+activity3_desc2: >
+  Keressen meg minket a lenti gombra kattintva, ha projektjéhez vezetőkre van szüksége!
 
 # References
 district: ker.
