@@ -4,6 +4,7 @@
   kind: renovation
   folder_id: 1
   image_count: 10
+  thumbnail: thumbnail.jpg
   comment: Kolosy téri lakásfelújítás
 - city: Budapest
   district: VIII
@@ -11,4 +12,5 @@
   kind: renovation
   folder_id: 1
   image_count: 7
+  thumbnail: 5.jpg
   comment: Baross utcai lakásfelújítás

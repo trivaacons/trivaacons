@@ -107,9 +107,9 @@ $(function () {
   }
 
   /**
-   * Adds the logic to the reference filter form.
+   * Adds the logic to the reference filter form and to the carousel.
    */
-  function configureReferenceFilterForm() {
+  function configureReferences() {
     const form = $('form#referenceFilterForm');
 
     // Get the buttons.
@@ -125,7 +125,7 @@ $(function () {
     const allKinds = $.map(kindAnchors.filter(':not([data-kind=""])'), (anchor) => $(anchor).data('kind'));
 
     // Get the cards representing references. Each must have a 'year' and a 'kind' attribute.
-    const referenceCards = $('.trivaa-references');
+    const referenceCards = $('#referencesSource .trivaa-references');
 
     // State variables storing the current selection.
     let currentYear = '';
@@ -161,7 +161,79 @@ $(function () {
      * 
      * @param {jQuery} cards the cards to show
      */
-    function showFilteredCards(cards) {}
+    const showCards = (function () {
+      // Logic that shows the latest selected cards again when resizing the screen.
+      let width = $(window).width();
+      let latestCards;
+      $(window).on('resize', function () {
+        if ($(this).width() != width) {
+          width = $(this).width();
+          if (latestCards) showCards(latestCards);
+        }
+      });
+
+      return function (cards) {
+        // Update the latest cards for the event handler.
+        latestCards = cards;
+
+        // Find the carousel.
+        const carousel = $('#referencesCarousel');
+
+        // Get its width using its parent. This works even if the carousel is empty.
+        const carouselWidth = carousel.parent().width();
+
+        // Find a card and get its width.
+        const cardWidth = $('#referencesSource .trivaa-references').first().width();
+
+        // Take the 90% of the carousel width and see how many cards fit in there.
+        const numCards = Math.floor((carouselWidth * 0.90) / cardWidth);
+
+        // Empty the carousel.
+        const carouselInner = carousel.find('.carousel-inner');
+        const carouselIndicators = carousel.find('.carousel-indicators');
+        carouselInner.empty();
+        carouselIndicators.empty();
+
+        // Add the cards one by one.
+        let latestItem;
+        cards.each((idx, card) => {
+          // Create the item div, if it's necessary.
+          if (!latestItem) {
+            // Create a wrapper which is the real item.
+            const wrapperItemDiv = $('<div>').addClass('carousel-item');
+            if (!idx) wrapperItemDiv.addClass('active');
+
+            // Create the item that is a flexbox.
+            latestItem = $('<div>').addClass('d-flex w-100 justify-content-around');
+            wrapperItemDiv.append(latestItem);
+
+            // Add the wrapper to the carousel.
+            carouselInner.append(wrapperItemDiv);
+
+            // Create the indicator.
+            const indicator = $('<li>');
+            if (!idx) indicator.addClass('active');
+            indicator.data('data-target', '#referencesCarousel');
+            indicator.data('data-slide-to', Math.floor(idx / numCards));
+
+            // Add it to the indicator div.
+            carouselIndicators.append(indicator);
+          }
+
+          // Append it the clone of the card.
+          const clonedCard = $(card).clone();
+          latestItem.append(clonedCard);
+
+          // Add the click handler to the clone.
+          clonedCard.click(() => {
+            console.log('Yee');
+          });
+
+          // See if this item is complete.
+          if (idx % numCards == numCards - 1) latestItem = undefined;
+        });
+      };
+    })();
 
     /**
      * Applies the year filter using 'currentYear'.
@@ -188,7 +260,7 @@ $(function () {
       if (currentKind) filteredCards = filterElementsFor(filteredCards, undefined, currentKind);
 
       // Show matched cards.
-      showFilteredCards(filteredCards);
+      showCards(filteredCards);
     }
 
     /**
@@ -213,10 +285,10 @@ $(function () {
       // Narrow down using the year filter too. Note that this is guaranteed to be in sync with which
       // year selection is shown by the above code as the concrete year selection has narrowed down
       // the kind filter already.
-      if (currentKind) filteredCards = filterElementsFor(filteredCards, currentYear);
+      if (currentYear) filteredCards = filterElementsFor(filteredCards, currentYear);
 
       // Show matched cards.
-      showFilteredCards(filteredCards);
+      showCards(filteredCards);
     }
 
     // Add the logic to change the year.
@@ -258,7 +330,23 @@ $(function () {
       updateButton(kindFilterButton, filterElementsFor(kindAnchors, undefined, ''));
 
       // Show all cards.
-      showFilteredCards(referenceCards);
+      showCards(referenceCards);
+    });
+
+    // Show all cards by default.
+    showCards(referenceCards);
+
+    // Make the carousel respond nicely to swipe events.
+    const carousel = $('#referencesCarousel');
+    const hammerTime = new Hammer(carousel.find('.carousel-inner', {
+      recognizers: [
+        [Hammer.Swipe, {
+          direction: Hammer.DIRECTION_HORIZONTAL
+        }]
+      ]
+    }).get(0));
+    hammerTime.on('swipe', function (e) {
+      carousel.carousel(e.direction == Hammer.DIRECTION_LEFT ? 'next' : 'prev');
     });
   }
 
@@ -275,6 +363,6 @@ $(function () {
   // Show the page.
   $('.no-fouc').removeClass('no-fouc');
 
-  // Configure the reference filter form.
-  configureReferenceFilterForm();
+  // Configure the references part of the page.
+  configureReferences();
 });
