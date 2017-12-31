@@ -131,6 +131,10 @@ body {
 	background-color: rgba(255, 255, 255, 0.6);
 }
 
+.trivaa-foreground-content3 {
+	background-color: rgb(97, 96, 96);
+}
+
 /* Activity icons */
 .trivaa-activity-icon {
 	display: inline-block;
@@ -196,4 +200,29 @@ footer {
 	padding-top: 2rem;
 	padding-bottom: 6rem;
 	background-color: rgb(116, 116, 116);
+}
+
+form button {
+	background-color: rgb(78, 78, 78) !important;
+	border-radius: 8px !important;
+	border: 0 !important;
+}
+
+form button:hover {
+	cursor: pointer;
+	background-color: #b33f21 !important;
+}
+
+form .dropdown-menu {
+	background-color: rgb(78, 78, 78) !important;
+	border-radius: 8px;
+}
+
+form .dropdown-menu a {
+	color: white;
+}
+
+form .dropdown-menu a:hover {
+	color: white;
+	background-color: #b33f21 !important;
 }

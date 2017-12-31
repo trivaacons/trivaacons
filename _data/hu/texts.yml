@@ -61,3 +61,10 @@ activity3_desc2: >
 
 # References
 district: ker.
+all_years: Minden év
+all_kinds: Minden projekt
+show_all: Mutasd mindet
+kinds:
+  renovation: Lakásfelújítás
+  house_construction: Házépítés
+  project_mgmt: Projektvezetés

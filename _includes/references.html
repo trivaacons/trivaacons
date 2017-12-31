@@ -1,31 +1,109 @@
 <a name="references"></a>
-<div class="mw-100 trivaa-content trivaa-foreground-content1">
-	<div id="container">
-		<div id="referencesCarousel" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#referencesCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#referencesCarousel" data-slide-to="1"></li>
-				<li data-target="#referencesCarousel" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100" src="..." alt="First slide">
+<div class="mw-100 trivaa-content trivaa-foreground-content3">
+	<div class="container">
+		<div class="row">
+			<form id="referenceFilterForm" class="form-inline w-100 d-flex flex-nowrap justify-content-around">
+				{% assign all_years = site.data.references | map: "year" | uniq %}
+				<div class="input-group">
+					<div class="btn-group" role="group">
+						<button id="btnYearFilter" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">
+							<img class="mr-2" src="{{ page.permalink }}img/calendar.png">
+							<span class="align-middle">{{ site.data.texts.all_years }}</span>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="btnYearFilter">
+							<a class="dropdown-item" href="#" data-year="">{{ site.data.texts.all_years }}</a>
+							{% for year in all_years %}
+								<a class="dropdown-item" href="#" data-year="{{ year }}">{{ year }}</a>
+							{% endfor %}
+						</div>
+					</div>
 				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="..." alt="Second slide">
+
+				<div class="input-group d-none d-sm-block">
+					<button type="button" class="trivaa-ref-showall btn btn-secondary">
+						<img class="mr-2" src="{{ page.permalink }}img/all.png">
+						<span class="align-middle">{{ site.data.texts.show_all }}</span>
+					</button>
 				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="..." alt="Third slide">
+
+				{% assign all_kinds = site.data.references | map: "kind" | uniq %}
+				<div class="input-group">
+					<div class="btn-group" role="group">
+						<button id="btnKindFilter" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">
+							<img class="mr-2" src="{{ page.permalink }}img/project.png">
+							<span class="align-middle">{{ site.data.texts.all_kinds }}</span>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="btnYearFilter">
+							<a class="dropdown-item" href="#" data-kind="">{{ site.data.texts.all_kinds }}</a>
+							{% for kind in all_kinds %}
+								<a class="dropdown-item" href="#" data-kind="{{ kind }}">{{ site.data.texts.kinds[kind] }}</a>
+							{% endfor %}
+						</div>
+					</div>
 				</div>
-			</div>
-			<a class="carousel-control-prev" href="#referencesCarousel" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#referencesCarousel" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+			</form>
 		</div>
+		<div class="row d-sm-none">
+			<form class="form-inline w-100">
+				<button type="button" class="trivaa-ref-showall btn btn-secondary mx-auto">
+					<img class="mr-2" src="{{ page.permalink }}img/all.png">
+					<span class="align-middle">{{ site.data.texts.show_all }}</span>
+				</button>
+			</form>
+		</div>
+		<hr/>
+		<div class="row">
+			{% for reference in site.data.references %}
+				<div class="trivaa-references" data-year="{{ reference.year }}" data-kind="{{ reference.kind }}"></div>
+			{% endfor %}
+
+			<!-- OBSOLETE BELOW THIS LINE -->
+			<div id="referencesCarousel" class="carousel slide w-100" data-ride="carousel">
+				<ol class="carousel-indicators">
+					{% for reference in site.data.references.list %}
+						{% for ref_image in reference.images %}
+							{% assign is_active = "" %}
+							{% if forloop.first == true %}
+								{% assign is_active = "active" %}
+							{% endif %}
+							<li data-target="#referencesCarousel" data-slide-to="{{ forloop.index0 }}" class="{{ is_active }}"></li>
+						{% endfor %}
+					{% endfor %}
+				</ol>
+				<div class="carousel-inner">
+					{% for reference in site.data.references.list %}
+						{% capture ref_heading %}
+							{{ reference.city }},&nbsp;{{ reference.district }}&nbsp;{{ site.data.texts.district }}.&nbsp;({{ reference.year }})
+						{% endcapture %}
+					
+						{% for ref_image in reference.images %}
+							{% assign is_active = "" %}
+							{% if forloop.first == true %}
+								{% assign is_active = "active" %}
+							{% endif %}
+
+							<div class="carousel-item {{ is_active }}">
+								<img class="d-block mx-auto" src="{{ page.permalink }}img/references/{{ ref_image.file }}">
+								<div class="carousel-caption d-none d-md-block">
+									<h5>{{ ref_heading }}</h5>
+									<p>{{ ref_image.description }}</p>
+								</div>
+							</div>
+						{% endfor %}
+					{% endfor %}
+				</div>
+				<a class="carousel-control-prev" href="#referencesCarousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#referencesCarousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+		<hr/>
 	</div>
 </div>

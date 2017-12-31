@@ -1,3 +1,5 @@
+"use strict";
+
 $(function () {
   /**
    * Mobile Browser Address-bar Resize Jump Fix.
@@ -103,6 +105,163 @@ $(function () {
       }
     });
   }
+
+  /**
+   * Adds the logic to the reference filter form.
+   */
+  function configureReferenceFilterForm() {
+    const form = $('form#referenceFilterForm');
+
+    // Get the buttons.
+    const yearFilterButton = form.find('button#btnYearFilter');
+    const kindFilterButton = form.find('button#btnKindFilter');
+
+    // Get the year and kind anchors.
+    const yearAnchors = form.find('a[data-year]');
+    const kindAnchors = form.find('a[data-kind]');
+
+    // Get all possible years and kinds.
+    const allYears = $.map(yearAnchors.filter(':not([data-year=""])'), (anchor) => $(anchor).data('year'));
+    const allKinds = $.map(kindAnchors.filter(':not([data-kind=""])'), (anchor) => $(anchor).data('kind'));
+
+    // Get the cards representing references. Each must have a 'year' and a 'kind' attribute.
+    const referenceCards = $('.trivaa-references');
+
+    // State variables storing the current selection.
+    let currentYear = '';
+    let currentKind = '';
+
+    /**
+     * Updates the specified dropdown button with the text of one of its anchor representing a selection.
+     * 
+     * @param {jQuery} button the button to update
+     * @param {jQuery} anchor the anchor belonging to the button.
+     */
+    function updateButton(button, anchor) {
+      button.find('span').text(anchor.text());
+    }
+
+    /**
+     * Returns the JQuery object representing the result of the specified filter. If an argument is undefined then
+     * it is not used in the filtering.
+     * 
+     * @param {jQuery} elements the elements to filter
+     * @param {string} year the year to filter for
+     * @param {string} kind the project kind to filter for
+     */
+    function filterElementsFor(elements, year, kind) {
+      if (year !== undefined && kind !== undefined) return elements.filter(`[data-year="${year}"][data-kind="${kind}"]`);
+      else if (year !== undefined) return elements.filter(`[data-year="${year}"]`);
+      else if (kind !== undefined) return elements.filter(`[data-kind="${kind}"]`);
+      else return elements;
+    }
+
+    /**
+     * Shows the specified cards.
+     * 
+     * @param {jQuery} cards the cards to show
+     */
+    function showFilteredCards(cards) {}
+
+    /**
+     * Applies the year filter using 'currentYear'.
+     */
+    function applyYearFilter() {
+      // Filter all the cards for the current year. The result set must be non-empty as the dropdown
+      // is filled with dimensions directly derived from the data.
+      let filteredCards = currentYear ? filterElementsFor(referenceCards, currentYear) : referenceCards;
+
+      // If a concrete year selection is made then the kinds must be narrowed down to what is available.
+      if (currentYear) {
+        const availableKinds = $.map(filteredCards, (card) => $(card).data('kind'));
+        kindAnchors.each((idx, anchor) => {
+          anchor = $(anchor);
+          let kind = anchor.data('kind');
+          if (!kind || availableKinds.indexOf(kind) >= 0) anchor.show();
+          else anchor.hide();
+        })
+      } else kindAnchors.show();
+
+      // Narrow down using the kind filter too. Note that this is guaranteed to be in sync with which
+      // kind selection is shown by the above code as the concrete kind selection has narrowed down
+      // the year filter already.
+      if (currentKind) filteredCards = filterElementsFor(filteredCards, undefined, currentKind);
+
+      // Show matched cards.
+      showFilteredCards(filteredCards);
+    }
+
+    /**
+     * Applies the kind filter using 'currentKind'.
+     */
+    function applyKindFilter() {
+      // Filter all the cards for the current kind. The result set must be non-empty as the dropdown
+      // is filled with dimensions directly derived from the data.
+      let filteredCards = currentKind ? filterElementsFor(referenceCards, undefined, currentKind) : referenceCards;
+
+      // If a concrete year selection is made then the kinds must be narrowed down to what is available.
+      if (currentKind) {
+        const availableYears = $.map(filteredCards, (card) => $(card).data('year'));
+        yearAnchors.each((idx, anchor) => {
+          anchor = $(anchor);
+          let year = anchor.data('year');
+          if (!year || availableYears.indexOf(year) >= 0) anchor.show();
+          else anchor.hide();
+        })
+      } else yearAnchors.show();
+
+      // Narrow down using the year filter too. Note that this is guaranteed to be in sync with which
+      // year selection is shown by the above code as the concrete year selection has narrowed down
+      // the kind filter already.
+      if (currentKind) filteredCards = filterElementsFor(filteredCards, currentYear);
+
+      // Show matched cards.
+      showFilteredCards(filteredCards);
+    }
+
+    // Add the logic to change the year.
+    yearAnchors.click(function (e) {
+      // Don't jump to href '#'.
+      e.preventDefault();
+
+      // Change the anchor text.
+      const anchor = $(this);
+      updateButton(yearFilterButton, anchor);
+
+      // Apply the filter.
+      currentYear = anchor.data('year');
+      applyYearFilter();
+    });
+
+    // Add the logic to change the kind.
+    kindAnchors.click(function (e) {
+      // Don't jump to href '#'.
+      e.preventDefault();
+
+      // Change the anchor text.
+      const anchor = $(this);
+      updateButton(kindFilterButton, anchor);
+
+      // Apply the filter.
+      currentKind = anchor.data('kind');
+      applyKindFilter();
+    });
+
+    // Add the logic of the 'Show All' button.
+    $('button.trivaa-ref-showall').click(() => {
+      // Show all anchors.
+      yearAnchors.show();
+      kindAnchors.show();
+
+      // Reset the selections.
+      updateButton(yearFilterButton, filterElementsFor(yearAnchors, ''));
+      updateButton(kindFilterButton, filterElementsFor(kindAnchors, undefined, ''));
+
+      // Show all cards.
+      showFilteredCards(referenceCards);
+    });
+  }
+
   /**
    * Page initialization.
    */
@@ -115,4 +274,7 @@ $(function () {
 
   // Show the page.
   $('.no-fouc').removeClass('no-fouc');
+
+  // Configure the reference filter form.
+  configureReferenceFilterForm();
 });
