@@ -198,6 +198,26 @@ body {
 	padding-bottom: 60px;
 }
 
+/* Contact us */
+.trivaa-contact-icon {
+	display: inline-block;
+	background-color: rgb(97, 96, 96);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 140px;
+	height: 140px;
+	border: 1px solid rgb(187, 186, 186);
+}
+
+.trivaa-contacts a {
+	color: rgb(97, 96, 96) !important;
+	text-decoration: none !important;
+}
+.trivaa-contacts a:hover {
+	color: rgb(187, 186, 186) !important;
+}
+
 /**
  * Bootstrap overrides.
  */
