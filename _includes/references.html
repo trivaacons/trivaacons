@@ -63,7 +63,12 @@
 			<div id="referencesSource" class="d-none">
 				{% for reference in site.data.references %}
 					{% capture img_root %}{{ page.permalink }}img/references/{{ reference.year }}-{{ reference.city }}-{{ reference.district }}-{{ reference.kind }}-{{ reference.folder_id }}/{% endcapture %}
-					<div class="card trivaa-references mx-2 mx-sm-4" data-year="{{ reference.year }}" data-kind="{{ reference.kind }}">
+					<div class="card trivaa-references mx-2 mx-sm-4"
+						data-year="{{ reference.year }}"
+						data-kind="{{ reference.kind }}"
+						data-image-root="{{ img_root }}"
+						data-image-count="{{ reference.image_count }}"
+						data-description="{{ site.data.texts.kinds[reference.kind] }} - {{ reference.city }}{% if reference.district %},&nbsp;{{ reference.district }}.&nbsp;{{ site.data.texts.district }}{% endif %} ({{ reference.year }})">
 						<img class="card-img-top" src="{{ img_root }}{{ reference.thumbnail }}">
 						<div class="card-body">
 							<h5 class="card-title">{{ site.data.texts.kinds[reference.kind] }}</h5>

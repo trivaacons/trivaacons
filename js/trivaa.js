@@ -226,7 +226,23 @@ $(function () {
 
           // Add the click handler to the clone.
           clonedCard.click(() => {
-            console.log('Yee');
+            // Get the gallery parameters.
+            const imageCount = parseInt(clonedCard.data('image-count'));
+            const imageRoot = clonedCard.data('image-root');
+            const description = clonedCard.data('description');
+
+            // Build the objects describing each image, as blueimp expects it.
+            const links = [];
+            for (let i = 0; i < imageCount; i++) links.push({
+              title: description,
+              href: `${imageRoot}/${i + 1}.jpg`
+            });
+
+            // Show the gallery.
+            blueimp.Gallery(links, {
+              container: '#blueimp-gallery',
+              carousel: false
+            });
           });
 
           // See if this item is complete.
