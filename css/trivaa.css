@@ -223,9 +223,18 @@ body {
 }
 
 footer {
-	padding-top: 2rem;
-	padding-bottom: 6rem;
-	background-color: rgb(116, 116, 116);
+	padding-top: 1rem;
+	padding-bottom: 3rem;
+	background-color: rgb(97, 96, 96);
+	font-size: 12px;
+}
+
+footer a {
+	color: #b33f21 !important;
+	text-decoration: none !important;
+}
+footer a:hover {
+	color: #d15333 !important;
 }
 
 form button {
