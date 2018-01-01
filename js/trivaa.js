@@ -341,7 +341,11 @@ $(function () {
       yearAnchors.show();
       kindAnchors.show();
 
-      // Reset the selections.
+      // Reset the state variables.
+      currentYear = '';
+      currentKind = '';
+
+      // Reset the selections in the buttons.
       updateButton(yearFilterButton, filterElementsFor(yearAnchors, ''));
       updateButton(kindFilterButton, filterElementsFor(kindAnchors, undefined, ''));
 
@@ -367,6 +371,16 @@ $(function () {
   }
 
   /**
+   * Configures the navbar so that it closes on the mobile automatically when an item is selected.
+   */
+  function configureMobileNavbar() {
+    const navbarToggler = $('button.navbar-toggler');
+    $('nav.navbar a.nav-link').click(() => {
+      if (navbarToggler.is(':visible')) navbarToggler.click();
+    });
+  }
+
+  /**
    * Page initialization.
    */
 
@@ -381,4 +395,7 @@ $(function () {
 
   // Configure the references part of the page.
   configureReferences();
+
+  // Configure the navbar for mobile-specific behaviour.
+  configureMobileNavbar();
 });

@@ -27,7 +27,7 @@
       </li>
 
       <!-- Language selectors (>=md) -->
-      <!-- {% for lang in site.languages %}
+      {% for lang in site.languages %}
         {% assign page_path = lang %}
         {% if lang == 'hu' %}
           {% assign page_path = "" %}
@@ -35,10 +35,10 @@
         <li class="nav-item d-none d-md-inline">
           <a class="nav-link" href="{{ page_path | absolute_url }}"><img class="trivaa-flag-desktop align-middle" src="{{ page.permalink }}img/flag-{{ lang }}.png"></a>
         </li>
-      {% endfor %} -->
+      {% endfor %}
 
       <!-- Language selectors (<>) -->
-      <!-- <li class="nav-item d-md-none text-center py-4">
+      <li class="nav-item d-md-none text-center py-4">
         {% for lang in site.languages %}
           {% assign page_path = lang %}
           {% if lang == 'hu' %}
@@ -46,7 +46,7 @@
           {% endif %}
             <a class="nav-link d-inline mx-4" href="{{ page_path | absolute_url }}"><img width="48" height="48" class="trivaa-flag-mobile" src="{{ page.permalink }}img/flag-{{ lang }}.png"></a>
         {% endfor %}
-      </li> -->
+      </li>
     </ul>
   </div>
 </nav>

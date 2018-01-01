@@ -5,15 +5,67 @@ item_references: References
 item_contact_us: Contact us
 
 # Jumbotron
-welcome: Welcome to our site!
+intro: >
+  We are an implementor and organizer firm building and renovating houses, apartments and buildings.
 check_out: Check out our references
 
+# About Us
+
+about_us1: >
+  TrivaaCons Ltd. was founded in 2015 by seasoned civil engineeers of the hungarian construction industry. Throughout the years we had to stand our
+  ground in several implementation and design projects, usually among difficult circumstances. We'd like to offer our services with these valuable
+  experiences gained. Nowadays, the construction industry is undergoing complex changes which often leave customers and investors confused.
+  People who are not experienced in the subtle ways of this industry can quickly find themselves facing financial difficulties with their project.
+  Unmet deadlines, exceeded budgets or end results of unacceptable quality are things many people have seen already and even more would like to avoid.
+about_us2: >
+  Our goal is to implement our Client's construction goals taking the current economical environment, budget and time limits all into consideration
+  meanwhile aiming at achieving exceptional quality. As part of our services we stand available from the moment the designs are conceived until the
+  building actually stands ready, thereby helping you through this maze we call the construction industry.
+about_us3: >
+  Take a look at our references and get in contact with us if you are interested. As our Customer you can lean back and concentrate on the most
+  important things. Let us do the heavy lifting to make the building you imagined a tangible reality!
+
 # Activities
-contact: Ask for an offer
-contact_subject: Ask for offer
+contact1: As for an offer
+contact1_subject: Ask for offer
 activity1: Renovation
+activity1_desc1: >
+  We can take care of the partial or complete renovation of your apartment based on your ideas and any available designs. We can also create these
+  designs, if need be.
+activity1_desc2: >
+  Use the below button to get in contact with us. For a precise offer we first conduct an on-site survey to get to know the details. We keep you
+  informed at all times as the construction progresses.
+
+contact2: As for an offer
+contact2_subject: As for offer
 activity2: House construction
-activity3: Consulting
+activity2_desc1: >
+  We are here to build the house you dreamed of from the first moment of implementation until it is finally complete. Let us be your single and only
+  point of contact who organizes everything.
+activity2_desc2: >
+  Click on the below button to send us a mail. The first thing we'll do is schedule a meeting to understand the details and your expectations. We then
+  get to organizing the construction right away.
+
+contact3: Get in contact
+contact3_subject: Contact
+activity3: Project management
+activity3_desc1: >
+  As an organizing firm we also offer project management services to organize a construction through both space and time. We will then orchestrate the
+  communication between the customers and the contractors and harmonize the often diverging concepts and ideas, never losing sight of the deadlines
+  or the budget in the process.
+activity3_desc2: >
+  Use this button and contact us if you are in need of leaders to your project.
 
 # References
 district: distr.
+all_years: All years
+all_kinds: All projects
+show_all: Show all
+kinds:
+  renovation: Renovation
+  house_construction: House construction
+  project_mgmt: Project management
+
+# Contact us
+managing_director: Managing Director
+project_manager: Project Leader
