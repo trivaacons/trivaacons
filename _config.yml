@@ -9,6 +9,9 @@ encoding: utf-8
 strict_front_matter: true
 exclude:
   - deploy.sh
+  - Gemfile
+  - Gemfile.lock
+  - README.md
 liquid:
   error_mode: strict
 
