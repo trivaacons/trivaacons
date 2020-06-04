@@ -26,7 +26,7 @@ about_us3: >
   important things. Let us do the heavy lifting to make the building you imagined a tangible reality!
 
 # Activities
-contact1: As for an offer
+contact1: Ask for an offer
 contact1_subject: Ask for offer
 activity1: Renovation
 activity1_desc1: >
@@ -36,8 +36,8 @@ activity1_desc2: >
   Use the below button to get in contact with us. For a precise offer we first conduct an on-site survey to get to know the details. We keep you
   informed at all times as the construction progresses.
 
-contact2: As for an offer
-contact2_subject: As for offer
+contact2: Ask for an offer
+contact2_subject: Ask for offer
 activity2: House construction
 activity2_desc1: >
   We are here to build the house you dreamed of from the first moment of implementation until it is finally complete. Let us be your single and only
@@ -56,6 +56,22 @@ activity3_desc1: >
 activity3_desc2: >
   Use this button and contact us if you are in need of leaders to your project.
 
+contact4: Get in contact
+contact4_subject: Contact
+activity4: Transportation
+activity4_desc1: >
+  We undertake the delivery of furniture and building materials in Budapest and Pest county with a van with a total weight of 3.5 tons (9 cubic meters of closed cargo space).
+activity4_desc2: >
+  Contact us if you need a means of transport!
+
+contact5: Ask for an offer
+contact5_subject: Ask for offer
+activity5: SM and TI
+activity5_desc1: >
+  Our company undertakes Site Management and Technical Inspection duties for both civilian and corporate customers.
+activity5_desc2: >
+  Contact us by clicking the button below!
+
 # References
 district: distr.
 all_years: All years
@@ -63,6 +79,7 @@ all_kinds: All projects
 show_all: Show all
 kinds:
   renovation: Renovation
+  office_renovation: Office renovation
   house_construction: House construction
   project_mgmt: Project management
 

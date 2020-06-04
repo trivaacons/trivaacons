@@ -4,7 +4,7 @@
 		<div class="row">
 			<form id="referenceFilterForm" class="form-inline w-100 d-flex flex-nowrap justify-content-around">
 				{% assign all_years = site.data.references | map: "year" | uniq %}
-				<div class="input-group">
+				<div class="input-group m-2 d-flex justify-content-center">
 					<div class="btn-group" role="group">
 						<button id="btnYearFilter" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">
@@ -20,7 +20,7 @@
 					</div>
 				</div>
 
-				<div class="input-group d-none d-sm-block">
+				<div class="input-group m-2 d-none d-sm-block">
 					<button type="button" class="trivaa-ref-showall btn btn-secondary">
 						<img class="mr-2" src="{{ page.permalink }}img/all.png">
 						<span class="align-middle">{{ site.data.texts.show_all }}</span>
@@ -28,7 +28,7 @@
 				</div>
 
 				{% assign all_kinds = site.data.references | map: "kind" | uniq %}
-				<div class="input-group">
+				<div class="input-group m-2 d-flex justify-content-center">
 					<div class="btn-group" role="group">
 						<button id="btnKindFilter" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">
