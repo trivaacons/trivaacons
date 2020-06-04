@@ -22,3 +22,11 @@
   image_count: 10
   thumbnail: 10.jpg
   comment: Ipar utcai lakásfelújítás
+- city: Budapest
+  district: XIV
+  year: 2019
+  kind: office_renovation
+  folder_id: 1
+  image_count: 30
+  thumbnail: 30.jpg
+  comment: Dózsa György úti iroda felújítás

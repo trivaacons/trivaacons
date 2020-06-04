@@ -64,6 +64,7 @@ all_kinds: Minden projekt
 show_all: Mutasd mindet
 kinds:
   renovation: Lakásfelújítás
+  office_renovation: Irodafelújítás
   house_construction: Házépítés
   project_mgmt: Projektvezetés
 
